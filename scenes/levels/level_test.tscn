@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://vm67ntbbtmlu"]
+
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_q8bkb"]
+[ext_resource type="MeshLibrary" uid="uid://b25pmoiqndhti" path="res://meshlib/blocks.meshlib" id="2_c3jub"]
+[ext_resource type="PackedScene" uid="uid://dqwpqubr2ny88" path="res://scenes/cores/world.tscn" id="2_e2dsw"]
+[ext_resource type="PackedScene" uid="uid://dlxsu270rowr0" path="res://scenes/players/ball.tscn" id="4_xblr7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obo0s"]
+size = Vector3(150, 1, 150)
+
+[node name="LevelTest" type="Node3D"]
+script = ExtResource("1_q8bkb")
+
+[node name="World" parent="." instance=ExtResource("2_e2dsw")]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_c3jub")
+cell_size = Vector3(4, 4, 4)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(1, 65534, 1048578, 1, 1, 1048576, 2, 1, 1048576, 0, 1, 655361, 3, 1, 1441792, 4, 1, 1441792, 5, 1, 1441792, 65535, 2, 655362, 3, 4, 1441794, 5, 0, 2, 2, 65535, 1048577, 2, 3, 1441793, 6, 1, 1441792, 7, 1, 1441792, 8, 5, 1441796, 9, 1, 1441792)
+}
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, -0.433013, 0.25, 0, 7, 5)
+light_color = Color(0.976471, 1, 0.937255, 1)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="Ball" parent="." instance=ExtResource("4_xblr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 4)
+
+[node name="DeathZone" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+shape = SubResource("BoxShape3D_obo0s")
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

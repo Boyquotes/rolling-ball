@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dlqgpl5k4plgh"]
+
+[node name="CameraRig" type="Marker3D"]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.5, -0.866025, 0, 0.866025, 0.5, 1, 2.18557e-08, -3.78552e-08, -3.5, 2.8, 0)
+current = true

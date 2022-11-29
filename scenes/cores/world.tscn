@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqwpqubr2ny88"]
+
+[sub_resource type="Environment" id="Environment_ao1mb"]
+background_mode = 1
+background_color = Color(0.176471, 0.337255, 0.529412, 1)
+ambient_light_color = Color(0.176471, 0.337255, 0.529412, 1)
+tonemap_mode = 3
+adjustment_enabled = true
+adjustment_brightness = 0.68
+adjustment_contrast = 1.25
+adjustment_saturation = 1.2
+
+[node name="World" type="WorldEnvironment"]
+environment = SubResource("Environment_ao1mb")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlxsu270rowr0"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_hcwme"]
+[ext_resource type="Texture2D" uid="uid://yn28spudpl5m" path="res://assets/textures/pixar-ball.png" id="2_yqdys"]
+[ext_resource type="ArrayMesh" uid="uid://kawnxkqfp0wl" path="res://assets/models/pixar-ball.obj" id="3_vkylm"]
+[ext_resource type="PackedScene" uid="uid://dlqgpl5k4plgh" path="res://scenes/cores/camera.tscn" id="4_w7a02"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5y68j"]
+friction = 2.0
+rough = true
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qmvho"]
+radius = 0.998679
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qg73s"]
+albedo_texture = ExtResource("2_yqdys")
+roughness = 0.4
+disable_receive_shadows = true
+
+[node name="Ball" type="RigidBody3D" groups=["player"]]
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_5y68j")
+gravity_scale = 2.0
+angular_damp = 1.0
+script = ExtResource("1_hcwme")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qmvho")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qg73s")
+mesh = ExtResource("3_vkylm")
+
+[node name="CheckFloor" type="RayCast3D" parent="."]
+top_level = true
+target_position = Vector3(0, -1.15, 0)
+
+[node name="CameraRig" parent="." instance=ExtResource("4_w7a02")]
