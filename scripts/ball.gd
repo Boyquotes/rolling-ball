@@ -31,6 +31,7 @@ func _physics_process(delta) -> void:
 		camera.rotate(Vector3.UP, Input.get_action_strength("camera_left") * rotation_sensitivity)
 	if Input.is_action_pressed("camera_right"):
 		camera.rotate(Vector3.DOWN, Input.get_action_strength("camera_right") * rotation_sensitivity)
+	camera.rotation.x = 0
 	
 	var is_on_floor = $CheckFloor.is_colliding()
 	if Input.is_action_just_pressed("player_jump") and is_on_floor:
