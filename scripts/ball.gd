@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 
-@export var rolling_force = 40
+@export var rolling_force = 30
 @export var jump_impulse = 1500
 @export var look_sensitivity = 0.005
 @onready var camera: Marker3D = $CameraRig
@@ -14,13 +14,16 @@ func _physics_process(delta) -> void:
 	_camera_follow()
 	
 	if Input.is_action_pressed("player_forward"):
-		angular_velocity.z -= rolling_force * delta
+		angular_velocity.z -= Input.get_action_strength("player_forward") * rolling_force * delta
 	elif Input.is_action_pressed("player_backward"):
-		angular_velocity.z += rolling_force * delta
+		angular_velocity.z += Input.get_action_strength("player_backward") * rolling_force * delta
 	if Input.is_action_pressed("player_left"):
-		angular_velocity.x -= rolling_force * delta
+		angular_velocity.x -= Input.get_action_strength("player_left") * rolling_force * delta
 	elif Input.is_action_pressed("player_right"):
-		angular_velocity.x += rolling_force * delta
+		angular_velocity.x += Input.get_action_strength("player_right") * rolling_force * delta
+
+	print(Input.get_action_strength("player_forward"))
+	print(Input.get_action_strength("player_backward"))
 	
 	var is_on_floor = $CheckFloor.is_colliding()
 	if Input.is_action_just_pressed("player_jump") and is_on_floor:
