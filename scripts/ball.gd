@@ -4,6 +4,7 @@ extends RigidBody3D
 @export var rolling_force = 30
 @export var jump_impulse = 1500
 @export var look_sensitivity = 0.005
+@export var rotation_sensitivity = 0.025
 @onready var camera: Marker3D = $CameraRig
 
 func _ready() -> void:
@@ -22,8 +23,14 @@ func _physics_process(delta) -> void:
 	elif Input.is_action_pressed("player_right"):
 		angular_velocity.x += Input.get_action_strength("player_right") * rolling_force * delta
 
-	print(Input.get_action_strength("player_forward"))
-	print(Input.get_action_strength("player_backward"))
+	if Input.is_action_pressed("camera_up"):
+		camera.rotate(Vector3.BACK, Input.get_action_strength("camera_up") * rotation_sensitivity)
+	if Input.is_action_pressed("camera_down"):
+		camera.rotate(Vector3.FORWARD, Input.get_action_strength("camera_down") * rotation_sensitivity)
+	if Input.is_action_pressed("camera_left"):
+		camera.rotate(Vector3.UP, Input.get_action_strength("camera_left") * rotation_sensitivity)
+	if Input.is_action_pressed("camera_right"):
+		camera.rotate(Vector3.DOWN, Input.get_action_strength("camera_right") * rotation_sensitivity)
 	
 	var is_on_floor = $CheckFloor.is_colliding()
 	if Input.is_action_just_pressed("player_jump") and is_on_floor:
@@ -34,9 +41,9 @@ func _physics_process(delta) -> void:
 
 
 func _camera_follow() -> void:
-	var old_cameera_position = $CameraRig.global_transform.origin
+	var old_camera_position = $CameraRig.global_transform.origin
 	var ball_position = global_transform.origin
-	var new_camera_position = lerp(old_cameera_position, ball_position, .2)
+	var new_camera_position = lerp(old_camera_position, ball_position, .2)
 	$CameraRig.global_transform.origin = new_camera_position
 	$CheckFloor.global_transform.origin = global_transform.origin
 
