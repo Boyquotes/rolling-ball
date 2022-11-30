@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://yn28spudpl5m"
-path.s3tc="res://.godot/imported/pixar-ball.png-e509225dce9e8e54345bc2cfbd56fc06.s3tc.ctex"
-path.etc2="res://.godot/imported/pixar-ball.png-e509225dce9e8e54345bc2cfbd56fc06.etc2.ctex"
+path.s3tc="res://.godot/imported/pixar-ball.png-9302d4e19b827497017932cee38ed565.s3tc.ctex"
+path.etc2="res://.godot/imported/pixar-ball.png-9302d4e19b827497017932cee38ed565.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/pixar-ball.png"
-dest_files=["res://.godot/imported/pixar-ball.png-e509225dce9e8e54345bc2cfbd56fc06.s3tc.ctex", "res://.godot/imported/pixar-ball.png-e509225dce9e8e54345bc2cfbd56fc06.etc2.ctex"]
+source_file="res://assets/textures/players/pixar-ball.png"
+dest_files=["res://.godot/imported/pixar-ball.png-9302d4e19b827497017932cee38ed565.s3tc.ctex", "res://.godot/imported/pixar-ball.png-9302d4e19b827497017932cee38ed565.etc2.ctex"]
 
 [params]
 

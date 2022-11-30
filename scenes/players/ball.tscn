@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlxsu270rowr0"]
+[gd_scene load_steps=8 format=3 uid="uid://c5etyehjh3t6v"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_hcwme"]
-[ext_resource type="Texture2D" uid="uid://yn28spudpl5m" path="res://assets/textures/pixar-ball.png" id="2_yqdys"]
-[ext_resource type="ArrayMesh" uid="uid://kawnxkqfp0wl" path="res://assets/models/pixar-ball.obj" id="3_vkylm"]
+[ext_resource type="Texture2D" uid="uid://b63x57dird4xj" path="res://assets/textures/players/Flag 2 - Madagascar.png" id="2_88wk6"]
+[ext_resource type="ArrayMesh" uid="uid://kawnxkqfp0wl" path="res://assets/models/player-ball.obj" id="3_l8kvn"]
 [ext_resource type="PackedScene" uid="uid://dlqgpl5k4plgh" path="res://scenes/cores/camera.tscn" id="4_w7a02"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5y68j"]
@@ -14,7 +14,7 @@ bounce = 0.5
 radius = 0.998679
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qg73s"]
-albedo_texture = ExtResource("2_yqdys")
+albedo_texture = ExtResource("2_88wk6")
 roughness = 0.4
 disable_receive_shadows = true
 
@@ -30,7 +30,7 @@ shape = SubResource("SphereShape3D_qmvho")
 
 [node name="Model" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_qg73s")
-mesh = ExtResource("3_vkylm")
+mesh = ExtResource("3_l8kvn")
 
 [node name="CheckFloor" type="RayCast3D" parent="."]
 top_level = true

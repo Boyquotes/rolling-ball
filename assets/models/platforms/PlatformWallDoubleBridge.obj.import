@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d0jqcdgn2qt2l"
+path="res://.godot/imported/PlatformWallDoubleBridge.obj-428837dda67540266ea476c235d9731d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PlatformWallDoubleBridge.obj-428837dda67540266ea476c235d9731d.mesh"]
+
+source_file="res://assets/models/platforms/PlatformWallDoubleBridge.obj"
+dest_files=["res://.godot/imported/PlatformWallDoubleBridge.obj-428837dda67540266ea476c235d9731d.mesh", "res://.godot/imported/PlatformWallDoubleBridge.obj-428837dda67540266ea476c235d9731d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
