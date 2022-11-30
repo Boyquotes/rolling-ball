@@ -15,7 +15,6 @@ grow_vertical = 2
 script = ExtResource("1_ep7au")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,7 +23,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,35 +31,30 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r38wx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 0
 offset_left = 144.0
 offset_top = 128.0
 offset_right = 234.0
 offset_bottom = 264.0
 
 [node name="ButtonAdventure" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_right = 90.0
 offset_bottom = 31.0
 focus_neighbor_top = NodePath("../ButtonExit")
 text = "Adventure"
 
 [node name="ButtonChill" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 90.0
 offset_bottom = 66.0
 text = "Chill"
 
 [node name="ButtonOptions" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 70.0
 offset_right = 90.0
 offset_bottom = 101.0
 text = "Options"
 
 [node name="ButtonExit" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 105.0
 offset_right = 90.0
 offset_bottom = 136.0

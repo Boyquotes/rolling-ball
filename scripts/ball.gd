@@ -25,6 +25,9 @@ func _physics_process(delta) -> void:
 	var is_on_floor = $CheckFloor.is_colliding()
 	if Input.is_action_just_pressed("player_jump") and is_on_floor:
 		apply_central_impulse(Vector3.UP * jump_impulse)
+	
+	if Input.is_action_pressed("player_brake") and is_on_floor:
+		angular_velocity = Vector3(0, 0, 0)
 
 
 func _camera_follow() -> void:
