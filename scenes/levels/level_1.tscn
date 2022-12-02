@@ -20,7 +20,7 @@ density = 2.0
 emission = Color(0.709804, 0.709804, 0.709804, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a4e5c"]
-size = Vector3(8, 1, 4)
+size = Vector3(4, 1, 12)
 
 [sub_resource type="FogMaterial" id="FogMaterial_ht1hh"]
 density = 0.8
@@ -86,6 +86,16 @@ shape = SubResource("BoxShape3D_a4e5c")
 
 [node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone"]
 extents = Vector3(4, 1, 2)
+material = SubResource("FogMaterial_ht1hh")
+
+[node name="JumpZone2" type="Area3D" parent="Level/Abilities" groups=["jump_zone"]]
+transform = Transform3D(0.899817, -0.436268, 0, 0.436268, 0.899817, 0, 0, 0, 1, 58.7462, 11.3778, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone2"]
+shape = SubResource("BoxShape3D_a4e5c")
+
+[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone2"]
+extents = Vector3(2, 1, 6)
 material = SubResource("FogMaterial_ht1hh")
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_v4ekc")]
