@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://yxy3f74sfiot"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obo0s"]
-size = Vector3(150, 1, 150)
+size = Vector3(1024, 1, 1022)
 
 [node name="DeathZone" type="Area3D"]
 

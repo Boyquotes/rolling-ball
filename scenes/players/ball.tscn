@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5etyehjh3t6v"]
+[gd_scene load_steps=9 format=3 uid="uid://c5etyehjh3t6v"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_hcwme"]
 [ext_resource type="Texture2D" uid="uid://b63x57dird4xj" path="res://assets/textures/players/Flag 2 - Madagascar.png" id="2_88wk6"]
@@ -17,6 +17,9 @@ radius = 0.998679
 albedo_texture = ExtResource("2_88wk6")
 roughness = 0.4
 disable_receive_shadows = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g2q3i"]
+radius = 1.0001
 
 [node name="Ball" type="RigidBody3D" groups=["player"]]
 mass = 100.0
@@ -37,3 +40,11 @@ top_level = true
 target_position = Vector3(0, -1.15, 0)
 
 [node name="CameraRig" parent="." instance=ExtResource("4_w7a02")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_g2q3i")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

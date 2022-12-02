@@ -2,9 +2,12 @@
 
 [sub_resource type="Environment" id="Environment_ao1mb"]
 background_mode = 1
-background_color = Color(0.176471, 0.337255, 0.529412, 1)
+background_color = Color(0.192245, 0.467506, 0.589844, 0.784314)
 ambient_light_color = Color(0.176471, 0.337255, 0.529412, 1)
 tonemap_mode = 3
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.25
+volumetric_fog_albedo = Color(0.196078, 0.196078, 0.196078, 1)
 adjustment_enabled = true
 adjustment_brightness = 0.68
 adjustment_contrast = 1.25

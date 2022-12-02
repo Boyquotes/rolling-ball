@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://1wyc4bt1wamv"
+path="res://.godot/imported/PlatformWallSimpleMini.obj-4567b3fe7d62fb7e9773bf7c874dd6b1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PlatformWallSimpleMini.obj-4567b3fe7d62fb7e9773bf7c874dd6b1.mesh"]
+
+source_file="res://assets/models/platforms/PlatformWallSimpleMini.obj"
+dest_files=["res://.godot/imported/PlatformWallSimpleMini.obj-4567b3fe7d62fb7e9773bf7c874dd6b1.mesh", "res://.godot/imported/PlatformWallSimpleMini.obj-4567b3fe7d62fb7e9773bf7c874dd6b1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

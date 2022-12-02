@@ -1,5 +1,8 @@
 extends Node3D
 
+#@onready var player: RigidBody3D = $Level/Ball
+#@onready var initial_position: Vector3 = player.get("position")
+
 
 func _ready():
 	pass

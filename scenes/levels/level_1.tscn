@@ -1,21 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://ns83h82t6x8p"]
+[gd_scene load_steps=14 format=3 uid="uid://ns83h82t6x8p"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_65sl4"]
-[ext_resource type="PackedScene" uid="uid://dqwpqubr2ny88" path="res://scenes/cores/world.tscn" id="1_h6gbw"]
 [ext_resource type="PackedScene" uid="uid://c5etyehjh3t6v" path="res://scenes/players/ball.tscn" id="2_jmsfv"]
 [ext_resource type="PackedScene" uid="uid://b0563r70bpv5c" path="res://scenes/cores/light.tscn" id="2_jqhvm"]
 [ext_resource type="MeshLibrary" uid="uid://bavsbhi10rfcm" path="res://meshlib/platforms_mini.meshlib" id="5_agxnl"]
 [ext_resource type="PackedScene" uid="uid://yxy3f74sfiot" path="res://scenes/cores/death_zone.tscn" id="5_jdryf"]
+[ext_resource type="PackedScene" uid="uid://ddc74l4xjk488" path="res://scenes/bonus/coin.tscn" id="7_kckby"]
 [ext_resource type="PackedScene" uid="uid://b8u5qcefvj7eh" path="res://scenes/menus/pause_menu.tscn" id="7_v4ekc"]
 [ext_resource type="MeshLibrary" uid="uid://c4vbjvhjr0v57" path="res://meshlib/platforms.meshlib" id="8_hhtr7"]
+[ext_resource type="PackedScene" uid="uid://tb6awd50ifrb" path="res://scenes/hud/game_hud.tscn" id="9_ct52q"]
+
+[sub_resource type="Environment" id="Environment_j2178"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.25
+volumetric_fog_albedo = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_t7alm"]
+density = 2.0
+emission = Color(0.709804, 0.709804, 0.709804, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4e5c"]
+size = Vector3(8, 1, 4)
+
+[sub_resource type="FogMaterial" id="FogMaterial_ht1hh"]
+density = 0.8
+albedo = Color(0.356863, 0.819608, 1, 1)
 
 [node name="Level1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 script = ExtResource("1_65sl4")
 
 [node name="Level" type="CanvasLayer" parent="."]
-
-[node name="World" parent="Level" instance=ExtResource("1_h6gbw")]
 
 [node name="Light" parent="Level" instance=ExtResource("2_jqhvm")]
 transform = Transform3D(0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, -0.433013, 0.25, 1, 7, 5)
@@ -25,14 +40,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 mesh_library = ExtResource("8_hhtr7")
 cell_size = Vector3(4, 2, 4)
 data = {
-"cells": PackedInt32Array(0, 65534, 655364, 0, 65535, 655363, 0, 0, 1441796, 1, 0, 4, 1, 65535, 0, 1, 65534, 1048580, 65540, 65535, 0, 65541, 65535, 0, 65542, 65535, 0, 2, 65535, 1048576, 3, 65535, 1048577, 65544, 65534, 0, 65545, 65534, 0, 65544, 0, 0, 65545, 0, 0, 65543, 65535, 0, 65545, 65535, 0, 65546, 65535, 1441798, 131083, 65535, 1441792, 65546, 65534, 1441798, 65546, 0, 1441798, 131083, 65534, 1441792, 131083, 0, 1441792, 65543, 65534, 0, 65543, 0, 0)
+"cells": PackedInt32Array(0, 65534, 655364, 0, 65535, 655363, 0, 0, 1441796, 1, 0, 4, 1, 65535, 0, 1, 65534, 1048580, 65540, 65535, 0, 2, 65535, 1048576, 3, 65535, 1048577, 65545, 65534, 0, 65544, 0, 0, 65545, 0, 0, 65545, 65535, 0, 65546, 65535, 1441798, 131083, 65535, 1441792, 65546, 65534, 1441798, 65546, 0, 1441798, 131083, 65534, 1441792, 131083, 0, 1441792, 65543, 0, 0, 65544, 65534, 0, 65543, 65534, 0, 65543, 65535, 0, 131084, 65534, 1441798, 131084, 65535, 1441798, 131084, 0, 1441798, 196621, 0, 1441798, 196621, 65535, 1441798, 196621, 65534, 1441798, 262158, 65534, 1441798, 262158, 65535, 1441798, 262158, 0, 1441798, 327698, 65534, 1441792, 327698, 0, 1441792, 327699, 0, 1441792, 327699, 65534, 1441792, 327700, 65534, 1441792, 327700, 65535, 1441792, 327700, 0, 1441792, 327697, 65535, 1441792, 327697, 65534, 1441792, 327697, 0, 1441792)
 }
-metadata/_editor_floor_ = Vector3(0, 1, 0)
+metadata/_editor_floor_ = Vector3(0, 5, 0)
 
 [node name="GridMapMini" type="GridMap" parent="Level"]
 mesh_library = ExtResource("5_agxnl")
 data = {
-"cells": PackedInt32Array(65545, 0, 0, 65545, 1, 0, 65545, 2, 0, 65545, 3, 0, 65545, 5, 0, 65545, 4, 0, 65546, 5, 0, 65547, 5, 0, 65548, 5, 0, 65549, 5, 0, 65551, 5, 0, 65550, 5, 0, 65551, 4, 0, 65551, 3, 0, 65551, 2, 0)
+"cells": PackedInt32Array(65545, 1, 0, 65545, 2, 0, 65545, 3, 0, 65545, 5, 0, 65545, 4, 0, 65546, 5, 0, 65547, 5, 0, 65548, 5, 0, 65549, 5, 0, 65551, 5, 0, 65550, 5, 0, 65551, 4, 0, 65551, 3, 0, 65551, 2, 1048580, 65545, 65533, 0, 65545, 65532, 0, 65545, 0, 0, 65545, 65531, 0, 65545, 65530, 0, 65545, 65529, 0, 65545, 65528, 0, 65545, 65527, 0, 65546, 65527, 0, 65547, 65527, 0, 65548, 65527, 0, 65548, 65526, 0, 65548, 65525, 0, 65548, 65524, 0, 65548, 65523, 0, 65549, 65523, 0, 65550, 65523, 0, 65551, 65523, 0, 65552, 65523, 0, 65553, 65523, 0, 65553, 65524, 0, 65553, 65525, 0, 65553, 65526, 0, 65553, 65527, 0, 65551, 65531, 0, 65551, 65530, 0, 65551, 65529, 0, 65551, 65528, 0, 65552, 65528, 0, 65553, 65528, 0)
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
@@ -42,6 +57,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -2)
 [node name="DeathZone" parent="Level" instance=ExtResource("5_jdryf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = SubResource("Environment_j2178")
+
+[node name="FogVolumeDeathZone" type="FogVolume" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -25, 0)
+extents = Vector3(100, 22, 100)
+material = SubResource("FogMaterial_t7alm")
+
+[node name="Bonus" type="Node3D" parent="Level"]
+
+[node name="Coin" parent="Level/Bonus" instance=ExtResource("7_kckby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5, -2)
+
+[node name="Coin2" parent="Level/Bonus" instance=ExtResource("7_kckby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5, 11)
+
+[node name="Coin3" parent="Level/Bonus" instance=ExtResource("7_kckby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5, -17)
+
+[node name="Abilities" type="Node3D" parent="Level"]
+
+[node name="JumpZone" type="Area3D" parent="Level/Abilities" groups=["jump_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.35373, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone"]
+shape = SubResource("BoxShape3D_a4e5c")
+
+[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone"]
+extents = Vector3(4, 1, 2)
+material = SubResource("FogMaterial_ht1hh")
+
 [node name="PauseMenu" parent="." instance=ExtResource("7_v4ekc")]
+
+[node name="GameHUD" parent="." instance=ExtResource("9_ct52q")]
 
 [connection signal="body_entered" from="Level/DeathZone" to="." method="_on_death_zone_body_entered"]
