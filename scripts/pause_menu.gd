@@ -10,6 +10,7 @@ func _input(event) -> void:
 		print("entered in")
 		set("visible", !get_tree().paused)
 		get_tree().paused = !get_tree().paused
+		
 		$VBoxContainer/ButtonResume.grab_focus()
 
 
