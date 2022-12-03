@@ -13,3 +13,4 @@ script = ExtResource("1_alpuq")
 shape = SubResource("BoxShape3D_6v2in")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

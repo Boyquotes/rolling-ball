@@ -7,16 +7,19 @@ extends RigidBody3D
 @export var joystick_sensitivity = 0.025
 
 @onready var camera: Marker3D = $CameraRig
+@onready var game_hud = get_parent().get_parent().get_node("GameHUD")
 
 var coins
 var able_to_move
 var able_to_jump
+var able_to_brake
 
 
 func _ready() -> void:
 	coins = 0
 	able_to_move = true
 	able_to_jump = false
+	able_to_brake = true
 
 
 func _physics_process(delta) -> void:
@@ -66,8 +69,9 @@ func _physics_process(delta) -> void:
 		if Input.is_action_just_pressed("player_action") and is_on_floor and able_to_jump:
 			apply_central_impulse(Vector3.UP * jump_impulse)
 		
-		if Input.is_action_pressed("player_brake") and is_on_floor:
-			angular_velocity = Vector3.ZERO
+		if able_to_brake:
+			if Input.is_action_pressed("player_brake") and is_on_floor:
+				angular_velocity = Vector3.ZERO
 		
 		if Input.is_action_pressed("camera_reset"):
 			camera.rotation = lerp(camera.rotation, Vector3.ZERO, .2)
@@ -98,8 +102,11 @@ func _on_area_3d_area_entered(area):
 		area.free()
 	elif area.is_in_group("jump_zone"):
 		able_to_jump = true
+		game_hud.set_advice("Press ACTION key to jump")
+		game_hud.show_advice()
 
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("jump_zone"):
 		able_to_jump = false
+		game_hud.hide_advice()

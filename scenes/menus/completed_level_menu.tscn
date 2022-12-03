@@ -4,15 +4,30 @@
 [ext_resource type="Script" path="res://scripts/completed_level_menu.gd" id="1_ep6df"]
 [ext_resource type="FontFile" uid="uid://codphd3i1jtme" path="res://assets/fonts/roboto/Roboto-Black.ttf" id="2_1ny5g"]
 
-[sub_resource type="Theme" id="Theme_pg6p7"]
+[sub_resource type="Theme" id="Theme_l1y5k"]
 default_font = ExtResource("2_1ny5g")
 default_font_size = 60
 
-[sub_resource type="Theme" id="Theme_dg6k8"]
+[sub_resource type="Theme" id="Theme_e3mj5"]
 default_font = ExtResource("1_bpw23")
 default_font_size = 40
 
-[sub_resource type="Animation" id="Animation_luj5s"]
+[sub_resource type="Animation" id="Animation_iaqry"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f77wp"]
 resource_name = "fade"
 length = 2.0
 tracks/0/type = "value"
@@ -28,25 +43,10 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_tlceq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackOverlay:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_amc6y"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3goc"]
 _data = {
-"RESET": SubResource("Animation_tlceq"),
-"fade": SubResource("Animation_luj5s")
+"RESET": SubResource("Animation_iaqry"),
+"fade": SubResource("Animation_f77wp")
 }
 
 [node name="CompletedLevelMenu" type="CanvasLayer"]
@@ -76,37 +76,46 @@ grow_vertical = 2
 theme_override_constants/separation = 150
 
 [node name="VBoxContainerLabel" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+offset_right = 696.0
+offset_bottom = 152.0
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainerLabel"]
-layout_mode = 2
-theme = SubResource("Theme_pg6p7")
+offset_right = 696.0
+offset_bottom = 74.0
+theme = SubResource("Theme_l1y5k")
 text = "Level Completed"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/VBoxContainerLabel"]
-layout_mode = 2
-theme = SubResource("Theme_pg6p7")
+offset_top = 78.0
+offset_right = 696.0
+offset_bottom = 152.0
+theme = SubResource("Theme_l1y5k")
 text = "!!! CONGRATULATIONS !!!"
 horizontal_alignment = 1
 
 [node name="VBoxContainerButton" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_dg6k8")
+offset_top = 302.0
+offset_right = 696.0
+offset_bottom = 426.0
+theme = SubResource("Theme_e3mj5")
 theme_override_constants/separation = 12
 
 [node name="ButtonNextLevel" type="Button" parent="VBoxContainer/VBoxContainerButton"]
-layout_mode = 2
+offset_right = 696.0
+offset_bottom = 56.0
 text = "Next Level"
 
 [node name="ButtonMainMenu" type="Button" parent="VBoxContainer/VBoxContainerButton"]
-layout_mode = 2
+offset_top = 68.0
+offset_right = 696.0
+offset_bottom = 124.0
 text = "Back to Main Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fade"
 libraries = {
-"": SubResource("AnimationLibrary_amc6y")
+"": SubResource("AnimationLibrary_b3goc")
 }
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainerButton/ButtonNextLevel" to="." method="_on_button_next_level_pressed"]
