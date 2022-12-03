@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://6wjfckas5ibp"]
+[gd_scene load_steps=15 format=3 uid="uid://6wjfckas5ibp"]
 
 [ext_resource type="ArrayMesh" uid="uid://dcc5ifwa0pk5o" path="res://assets/models/platforms/Platform.obj" id="1_aj16w"]
 [ext_resource type="ArrayMesh" uid="uid://clw26oxuqgb0r" path="res://assets/models/platforms/PlatformWall.obj" id="2_d6kap"]
 [ext_resource type="ArrayMesh" uid="uid://coaluxklfaadx" path="res://assets/models/platforms/PlatformWallDouble.obj" id="3_qpms6"]
 [ext_resource type="ArrayMesh" uid="uid://ks7xylhpb1os" path="res://assets/models/platforms/PlatformWallSimple.obj" id="4_l5vr4"]
 [ext_resource type="ArrayMesh" uid="uid://d0jqcdgn2qt2l" path="res://assets/models/platforms/PlatformWallDoubleBridge.obj" id="4_yuer0"]
+[ext_resource type="Texture2D" uid="uid://t8y5dif33gq1" path="res://assets/materials/Paper005_2K-JPG/Paper005_2K_Color.jpg" id="6_wqiau"]
+[ext_resource type="Texture2D" uid="uid://c6nsnihqluqnq" path="res://assets/materials/Paper005_2K-JPG/Paper005_2K_Displacement.jpg" id="7_l3w8b"]
+[ext_resource type="Texture2D" uid="uid://4snvi1oqxe4x" path="res://assets/materials/Paper005_2K-JPG/Paper005_2K_NormalGL.jpg" id="8_tisf4"]
+[ext_resource type="Texture2D" uid="uid://cccxk40nby3yk" path="res://assets/materials/Paper005_2K-JPG/Paper005_2K_Roughness.jpg" id="9_h1qbx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_il2va"]
 size = Vector3(4, 0.340764, 4)
@@ -27,6 +31,17 @@ _surfaces = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7lbr"]
 size = Vector3(4, 0.340764, 4.46873)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uig5p"]
+albedo_texture = ExtResource("6_wqiau")
+metallic = 0.05
+metallic_specular = 0.2
+roughness_texture = ExtResource("9_h1qbx")
+normal_enabled = true
+normal_scale = 10.0
+normal_texture = ExtResource("8_tisf4")
+ao_enabled = true
+ao_texture = ExtResource("7_l3w8b")
 
 [node name="PlatformMesh" type="Node3D"]
 
@@ -126,3 +141,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0473707, 0, 0.162737)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformStairs/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.89316, -0.44974, 0, 0.44974, 0.89316, 0.0470715, 1.20603, -0.22686)
 shape = SubResource("BoxShape3D_d7lbr")
+
+[node name="PlatformGoal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+mesh = ExtResource("1_aj16w")
+surface_material_override/0 = SubResource("StandardMaterial3D_uig5p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformGoal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0473707, 0, 0.162737)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformGoal/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0491359, 0.174, -0.163442)
+shape = SubResource("BoxShape3D_il2va")

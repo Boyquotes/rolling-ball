@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ns83h82t6x8p"]
+[gd_scene load_steps=15 format=3 uid="uid://ns83h82t6x8p"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_65sl4"]
 [ext_resource type="PackedScene" uid="uid://c5etyehjh3t6v" path="res://scenes/players/ball.tscn" id="2_jmsfv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://yxy3f74sfiot" path="res://scenes/cores/death_zone.tscn" id="5_jdryf"]
 [ext_resource type="PackedScene" uid="uid://ddc74l4xjk488" path="res://scenes/bonus/coin.tscn" id="7_kckby"]
 [ext_resource type="PackedScene" uid="uid://b8u5qcefvj7eh" path="res://scenes/menus/pause_menu.tscn" id="7_v4ekc"]
+[ext_resource type="PackedScene" uid="uid://c8f0f3dgp1g5b" path="res://scenes/cores/goal_zone.tscn" id="8_dmbro"]
 [ext_resource type="MeshLibrary" uid="uid://c4vbjvhjr0v57" path="res://meshlib/platforms.meshlib" id="8_hhtr7"]
 [ext_resource type="PackedScene" uid="uid://tb6awd50ifrb" path="res://scenes/hud/game_hud.tscn" id="9_ct52q"]
 
@@ -40,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 mesh_library = ExtResource("8_hhtr7")
 cell_size = Vector3(4, 2, 4)
 data = {
-"cells": PackedInt32Array(0, 65534, 655364, 0, 65535, 655363, 0, 0, 1441796, 1, 0, 4, 1, 65535, 0, 1, 65534, 1048580, 65540, 65535, 0, 2, 65535, 1048576, 3, 65535, 1048577, 65545, 65534, 0, 65544, 0, 0, 65545, 0, 0, 65545, 65535, 0, 65546, 65535, 1441798, 131083, 65535, 1441792, 65546, 65534, 1441798, 65546, 0, 1441798, 131083, 65534, 1441792, 131083, 0, 1441792, 65543, 0, 0, 65544, 65534, 0, 65543, 65534, 0, 65543, 65535, 0, 131084, 65534, 1441798, 131084, 65535, 1441798, 131084, 0, 1441798, 196621, 0, 1441798, 196621, 65535, 1441798, 196621, 65534, 1441798, 262158, 65534, 1441798, 262158, 65535, 1441798, 262158, 0, 1441798, 327698, 65534, 1441792, 327698, 0, 1441792, 327699, 0, 1441792, 327699, 65534, 1441792, 327700, 65534, 1441792, 327700, 65535, 1441792, 327700, 0, 1441792, 327697, 65535, 1441792, 327697, 65534, 1441792, 327697, 0, 1441792)
+"cells": PackedInt32Array(0, 65534, 655364, 0, 65535, 655363, 0, 0, 1441796, 1, 0, 4, 1, 65535, 0, 1, 65534, 1048580, 65540, 65535, 0, 2, 65535, 1048576, 3, 65535, 1048577, 65545, 65534, 0, 65544, 0, 0, 65545, 0, 0, 65545, 65535, 0, 65546, 65535, 1441798, 131083, 65535, 1441792, 65546, 65534, 1441798, 65546, 0, 1441798, 131083, 65534, 1441792, 131083, 0, 1441792, 65543, 0, 0, 65544, 65534, 0, 65543, 65534, 0, 65543, 65535, 0, 131084, 65534, 1441798, 131084, 65535, 1441798, 131084, 0, 1441798, 196621, 0, 1441798, 196621, 65535, 1441798, 196621, 65534, 1441798, 262158, 65534, 1441798, 262158, 65535, 1441798, 262158, 0, 1441798, 327698, 65534, 1441792, 327698, 0, 1441792, 327699, 0, 1441792, 327699, 65534, 1441792, 327700, 65534, 1441792, 327700, 65535, 1441792, 327700, 0, 1441792, 327697, 65535, 1441792, 327697, 65534, 1441792, 327697, 0, 1441792, 327701, 65534, 8, 327701, 65535, 8, 327701, 0, 8)
 }
 metadata/_editor_floor_ = Vector3(0, 5, 0)
 
@@ -97,6 +98,8 @@ shape = SubResource("BoxShape3D_a4e5c")
 [node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone2"]
 extents = Vector3(2, 1, 6)
 material = SubResource("FogMaterial_ht1hh")
+
+[node name="GoalZone" parent="Level" instance=ExtResource("8_dmbro")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_v4ekc")]
 

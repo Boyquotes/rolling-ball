@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3 uid="uid://csmaoesdpdkiu"]
+
+[ext_resource type="FontFile" uid="uid://owv0xlglcbyj" path="res://assets/fonts/roboto/Roboto-Medium.ttf" id="1_bpw23"]
+[ext_resource type="Script" path="res://scripts/completed_level_menu.gd" id="1_ep6df"]
+[ext_resource type="FontFile" uid="uid://codphd3i1jtme" path="res://assets/fonts/roboto/Roboto-Black.ttf" id="2_1ny5g"]
+
+[sub_resource type="Theme" id="Theme_pg6p7"]
+default_font = ExtResource("2_1ny5g")
+default_font_size = 60
+
+[sub_resource type="Theme" id="Theme_dg6k8"]
+default_font = ExtResource("1_bpw23")
+default_font_size = 40
+
+[sub_resource type="Animation" id="Animation_luj5s"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tlceq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_amc6y"]
+_data = {
+"RESET": SubResource("Animation_tlceq"),
+"fade": SubResource("Animation_luj5s")
+}
+
+[node name="CompletedLevelMenu" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_ep6df")
+
+[node name="BlackOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -140.0
+offset_right = 282.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="VBoxContainerLabel" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainerLabel"]
+layout_mode = 2
+theme = SubResource("Theme_pg6p7")
+text = "Level Completed"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainerLabel"]
+layout_mode = 2
+theme = SubResource("Theme_pg6p7")
+text = "!!! CONGRATULATIONS !!!"
+horizontal_alignment = 1
+
+[node name="VBoxContainerButton" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dg6k8")
+theme_override_constants/separation = 12
+
+[node name="ButtonNextLevel" type="Button" parent="VBoxContainer/VBoxContainerButton"]
+layout_mode = 2
+text = "Next Level"
+
+[node name="ButtonMainMenu" type="Button" parent="VBoxContainer/VBoxContainerButton"]
+layout_mode = 2
+text = "Back to Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fade"
+libraries = {
+"": SubResource("AnimationLibrary_amc6y")
+}
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainerButton/ButtonNextLevel" to="." method="_on_button_next_level_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainerButton/ButtonMainMenu" to="." method="_on_button_main_menu_pressed"]

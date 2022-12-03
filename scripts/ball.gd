@@ -9,11 +9,13 @@ extends RigidBody3D
 @onready var camera: Marker3D = $CameraRig
 
 var coins
+var able_to_move
 var able_to_jump
 
 
 func _ready() -> void:
 	coins = 0
+	able_to_move = true
 	able_to_jump = false
 
 
@@ -40,34 +42,37 @@ func _physics_process(delta) -> void:
 #	angular_velocity.x = move_direction.x * rolling_force
 #	angular_velocity.z = move_direction.z * rolling_force
 	
-	if Input.is_action_pressed("player_forward"):
-		angular_velocity.z -= Input.get_action_strength("player_forward") * rolling_force * delta
-	elif Input.is_action_pressed("player_backward"):
-		angular_velocity.z += Input.get_action_strength("player_backward") * rolling_force * delta
-	if Input.is_action_pressed("player_left"):
-		angular_velocity.x -= Input.get_action_strength("player_left") * rolling_force * delta
-	elif Input.is_action_pressed("player_right"):
-		angular_velocity.x += Input.get_action_strength("player_right") * rolling_force * delta
+	if able_to_move:
+		if Input.is_action_pressed("player_forward"):
+			angular_velocity.z -= Input.get_action_strength("player_forward") * rolling_force * delta
+		elif Input.is_action_pressed("player_backward"):
+			angular_velocity.z += Input.get_action_strength("player_backward") * rolling_force * delta
+		if Input.is_action_pressed("player_left"):
+			angular_velocity.x -= Input.get_action_strength("player_left") * rolling_force * delta
+		elif Input.is_action_pressed("player_right"):
+			angular_velocity.x += Input.get_action_strength("player_right") * rolling_force * delta
 
-	if Input.is_action_pressed("camera_up"):
-		camera.rotate(Vector3.BACK, Input.get_action_strength("camera_up") * joystick_sensitivity)
-	if Input.is_action_pressed("camera_down"):
-		camera.rotate(Vector3.FORWARD, Input.get_action_strength("camera_down") * joystick_sensitivity)
-	if Input.is_action_pressed("camera_left"):
-		camera.rotate(Vector3.UP, Input.get_action_strength("camera_left") * joystick_sensitivity)
-	if Input.is_action_pressed("camera_right"):
-		camera.rotate(Vector3.DOWN, Input.get_action_strength("camera_right") * joystick_sensitivity)
-	camera.rotation.x = 0
-	
-	var is_on_floor = $CheckFloor.is_colliding()
-	if Input.is_action_just_pressed("player_action") and is_on_floor and able_to_jump:
-		apply_central_impulse(Vector3.UP * jump_impulse)
-	
-	if Input.is_action_pressed("player_brake") and is_on_floor:
+		if Input.is_action_pressed("camera_up"):
+			camera.rotate(Vector3.BACK, Input.get_action_strength("camera_up") * joystick_sensitivity)
+		if Input.is_action_pressed("camera_down"):
+			camera.rotate(Vector3.FORWARD, Input.get_action_strength("camera_down") * joystick_sensitivity)
+		if Input.is_action_pressed("camera_left"):
+			camera.rotate(Vector3.UP, Input.get_action_strength("camera_left") * joystick_sensitivity)
+		if Input.is_action_pressed("camera_right"):
+			camera.rotate(Vector3.DOWN, Input.get_action_strength("camera_right") * joystick_sensitivity)
+		camera.rotation.x = 0
+		
+		var is_on_floor = $CheckFloor.is_colliding()
+		if Input.is_action_just_pressed("player_action") and is_on_floor and able_to_jump:
+			apply_central_impulse(Vector3.UP * jump_impulse)
+		
+		if Input.is_action_pressed("player_brake") and is_on_floor:
+			angular_velocity = Vector3.ZERO
+		
+		if Input.is_action_pressed("camera_reset"):
+			camera.rotation = lerp(camera.rotation, Vector3.ZERO, .2)
+	else:
 		angular_velocity = Vector3.ZERO
-	
-	if Input.is_action_pressed("camera_reset"):
-		camera.rotation = lerp(camera.rotation, Vector3.ZERO, .2)
 
 
 func _camera_follow() -> void:
