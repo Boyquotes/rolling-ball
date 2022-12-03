@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_65sl4"]
 [ext_resource type="PackedScene" uid="uid://c5etyehjh3t6v" path="res://scenes/players/ball.tscn" id="2_jmsfv"]
 [ext_resource type="PackedScene" uid="uid://b0563r70bpv5c" path="res://scenes/cores/light.tscn" id="2_jqhvm"]
+[ext_resource type="PackedScene" uid="uid://b857o4jchkjny" path="res://scenes/cores/world.tscn" id="3_23sua"]
 [ext_resource type="MeshLibrary" uid="uid://c24pyr7ulb2aj" path="res://meshlib/platforms_mini.meshlib" id="5_agxnl"]
 [ext_resource type="PackedScene" uid="uid://yxy3f74sfiot" path="res://scenes/cores/death_zone.tscn" id="5_jdryf"]
 [ext_resource type="PackedScene" uid="uid://ddc74l4xjk488" path="res://scenes/bonus/coin.tscn" id="7_kckby"]
@@ -10,11 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://c8f0f3dgp1g5b" path="res://scenes/cores/goal_zone.tscn" id="8_dmbro"]
 [ext_resource type="MeshLibrary" uid="uid://c4vbjvhjr0v57" path="res://meshlib/platforms.meshlib" id="8_hhtr7"]
 [ext_resource type="PackedScene" uid="uid://tb6awd50ifrb" path="res://scenes/hud/game_hud.tscn" id="9_ct52q"]
-
-[sub_resource type="Environment" id="Environment_j2178"]
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.25
-volumetric_fog_albedo = Color(0.196078, 0.196078, 0.196078, 1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_t7alm"]
 density = 2.0
@@ -39,6 +35,8 @@ script = ExtResource("1_65sl4")
 [node name="Light" parent="Level" instance=ExtResource("2_jqhvm")]
 transform = Transform3D(0.5, 0.75, -0.433013, 0, 0.5, 0.866025, 0.866025, -0.433013, 0.25, 1, 7, 5)
 
+[node name="World" parent="Level" instance=ExtResource("3_23sua")]
+
 [node name="GridMap" type="GridMap" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 mesh_library = ExtResource("8_hhtr7")
@@ -60,9 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -2)
 
 [node name="DeathZone" parent="Level" instance=ExtResource("5_jdryf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
-environment = SubResource("Environment_j2178")
 
 [node name="FogVolumeDeathZone" type="FogVolume" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -25, 0)
@@ -103,6 +98,7 @@ extents = Vector3(2, 1, 6)
 material = SubResource("FogMaterial_ht1hh")
 
 [node name="GoalZone" parent="Level" instance=ExtResource("8_dmbro")]
+next_level_name = "level_2"
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_v4ekc")]
 

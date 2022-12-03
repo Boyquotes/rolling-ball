@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2m6b1upgp5cl"]
+
+[ext_resource type="PackedScene" uid="uid://ns83h82t6x8p" path="res://scenes/levels/level_1.tscn" id="1_gjx06"]
+
+[sub_resource type="Environment" id="Environment_ssqgc"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.25
+volumetric_fog_albedo = Color(0.588235, 0.588235, 0.588235, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_721va"]
+size = Vector3(4, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lin8r"]
+size = Vector3(4, 1, 4)
+
+[sub_resource type="FogMaterial" id="FogMaterial_qjs7n"]
+density = 0.8
+albedo = Color(0.356863, 0.819608, 1, 1)
+
+[node name="Level2" instance=ExtResource("1_gjx06")]
+
+[node name="World" parent="Level" index="1"]
+environment = SubResource("Environment_ssqgc")
+
+[node name="GridMap" parent="Level" index="2"]
+data = {
+"cells": PackedInt32Array(0, 65534, 655364, 0, 65535, 655363, 0, 0, 1441796, 1, 0, 4, 1, 65535, 0, 1, 65534, 1048580, 2, 65535, 1048576, 3, 65535, 0, 4, 65535, 3, -131067, 65535, 1048576, -131067, 65534, 655364, -131066, 65534, 1048580, -131066, 0, 4, -131067, 0, 1441796, -131066, 65535, 1048576, -131065, 65535, 1441792, -131064, 65535, 1441792, 7, 65535, 1441792, 131079, 1, 1441792, 131079, 65533, 0, -131063, 65535, 1441798, -65526, 65535, 1441798, 11, 65535, 1441798, 65548, 65535, 1048577, 131082, 65535, 0)
+}
+metadata/_editor_floor_ = Vector3(2, 2, 0)
+
+[node name="GridMapMini" parent="Level" index="3"]
+data = {
+"cells": PackedInt32Array()
+}
+
+[node name="Bonus" parent="Level" index="7"]
+visible = false
+
+[node name="JumpZone" parent="Level/Abilities" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2.35373, -2)
+
+[node name="JumpZone2" parent="Level/Abilities" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9792, 4.3778, -2)
+
+[node name="CollisionShape3D" parent="Level/Abilities/JumpZone2" index="0"]
+shape = SubResource("BoxShape3D_721va")
+
+[node name="FogVolume" parent="Level/Abilities/JumpZone2" index="1"]
+extents = Vector3(2, 1, 2)
+
+[node name="JumpZone3" type="Area3D" parent="Level/Abilities" index="2" groups=["jump_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -1.64526, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone3" index="0"]
+shape = SubResource("BoxShape3D_lin8r")
+
+[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone3" index="1"]
+extents = Vector3(4, 1, 6)
+material = SubResource("FogMaterial_qjs7n")
+
+[node name="JumpZone4" type="Area3D" parent="Level/Abilities" index="3" groups=["jump_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 2.35474, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone4" index="0"]
+shape = SubResource("BoxShape3D_lin8r")
+
+[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone4" index="1"]
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_qjs7n")
+
+[node name="JumpZone5" type="Area3D" parent="Level/Abilities" index="4" groups=["jump_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 6.35474, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone5" index="0"]
+shape = SubResource("BoxShape3D_lin8r")
+
+[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone5" index="1"]
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_qjs7n")
+
+[node name="JumpZone6" type="Area3D" parent="Level/Abilities" index="5" groups=["jump_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 6.35474, -9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone6" index="0"]
+shape = SubResource("BoxShape3D_lin8r")
+
+[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone6" index="1"]
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_qjs7n")
+
+[node name="JumpZone7" type="Area3D" parent="Level/Abilities" index="6" groups=["jump_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 6.35474, -2)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone7" index="0"]
+shape = SubResource("BoxShape3D_lin8r")
+
+[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone7" index="1"]
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_qjs7n")
+
+[node name="GoalZone" parent="Level" index="9"]
+visible = false
