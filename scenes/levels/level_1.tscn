@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ns83h82t6x8p"]
+[gd_scene load_steps=16 format=3 uid="uid://ns83h82t6x8p"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_65sl4"]
 [ext_resource type="PackedScene" uid="uid://c5etyehjh3t6v" path="res://scenes/players/ball.tscn" id="2_jmsfv"]
@@ -20,12 +20,15 @@ volumetric_fog_albedo = Color(0.196078, 0.196078, 0.196078, 1)
 density = 2.0
 emission = Color(0.709804, 0.709804, 0.709804, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a4e5c"]
-size = Vector3(4, 1, 12)
+[sub_resource type="BoxShape3D" id="BoxShape3D_oithw"]
+size = Vector3(8, 1, 4)
 
 [sub_resource type="FogMaterial" id="FogMaterial_ht1hh"]
 density = 0.8
 albedo = Color(0.356863, 0.819608, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4e5c"]
+size = Vector3(4, 1, 12)
 
 [node name="Level1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
@@ -83,7 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5, -17)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.35373, -2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone"]
-shape = SubResource("BoxShape3D_a4e5c")
+shape = SubResource("BoxShape3D_oithw")
 
 [node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone"]
 extents = Vector3(4, 1, 2)
