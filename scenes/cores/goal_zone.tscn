@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8f0f3dgp1g5b"]
 
-[ext_resource type="Script" path="res://scripts/goal_zone.gd" id="1_alpuq"]
+[ext_resource type="Script" path="res://scripts/cores/goal_zone.gd" id="1_f21bn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6v2in"]
 size = Vector3(4, 1, 12)
 
 [node name="GoalZone" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 12, -2)
-script = ExtResource("1_alpuq")
+script = ExtResource("1_f21bn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_6v2in")

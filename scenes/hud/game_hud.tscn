@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://tb6awd50ifrb"]
 
-[ext_resource type="Script" path="res://scripts/game_hud.gd" id="1_bppcr"]
 [ext_resource type="FontFile" uid="uid://dsl2b4yt0h4mw" path="res://assets/fonts/roboto/Roboto-Regular.ttf" id="1_d2k53"]
+[ext_resource type="Script" path="res://scripts/cores/game_hud.gd" id="1_pw3l1"]
 [ext_resource type="FontFile" uid="uid://gq08pvsrcgxl" path="res://assets/fonts/roboto/Roboto-Light.ttf" id="3_v4d3b"]
 
 [sub_resource type="Theme" id="Theme_vmooq"]
@@ -14,7 +14,7 @@ default_font_size = 32
 
 [node name="GameHUD" type="CanvasLayer"]
 layer = 2
-script = ExtResource("1_bppcr")
+script = ExtResource("1_pw3l1")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -25,6 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LabelCoins" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 72.0
 offset_top = 64.0
 offset_right = 264.0
@@ -33,6 +34,7 @@ theme = SubResource("Theme_vmooq")
 text = "Coins : 0"
 
 [node name="LabelAdvice" type="Label" parent="Control"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

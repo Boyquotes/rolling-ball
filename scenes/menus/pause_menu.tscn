@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8u5qcefvj7eh"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_ar3y3"]
+[ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="1_e31qs"]
 [ext_resource type="FontFile" uid="uid://owv0xlglcbyj" path="res://assets/fonts/roboto/Roboto-Medium.ttf" id="2_lo6nc"]
 
 [sub_resource type="Theme" id="Theme_amyj6"]
@@ -10,7 +10,7 @@ default_font_size = 40
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 layer = 10
-script = ExtResource("1_ar3y3")
+script = ExtResource("1_e31qs")
 
 [node name="BlackOverlay" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -36,21 +36,16 @@ theme = SubResource("Theme_amyj6")
 theme_override_constants/separation = 12
 
 [node name="ButtonResume" type="Button" parent="VBoxContainer"]
-offset_right = 329.0
-offset_bottom = 56.0
+layout_mode = 2
 focus_neighbor_top = NodePath("../ButtonMainMenu")
 text = "Resume"
 
 [node name="ButtonOptions" type="Button" parent="VBoxContainer"]
-offset_top = 68.0
-offset_right = 329.0
-offset_bottom = 124.0
+layout_mode = 2
 text = "Options"
 
 [node name="ButtonMainMenu" type="Button" parent="VBoxContainer"]
-offset_top = 136.0
-offset_right = 329.0
-offset_bottom = 192.0
+layout_mode = 2
 focus_neighbor_bottom = NodePath("../ButtonResume")
 text = "Exit to main menu
 "

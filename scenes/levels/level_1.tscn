@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://ns83h82t6x8p"]
 
-[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_65sl4"]
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_2avgw"]
 [ext_resource type="PackedScene" uid="uid://c5etyehjh3t6v" path="res://scenes/players/ball.tscn" id="2_jmsfv"]
 [ext_resource type="PackedScene" uid="uid://b0563r70bpv5c" path="res://scenes/cores/light.tscn" id="2_jqhvm"]
 [ext_resource type="PackedScene" uid="uid://b857o4jchkjny" path="res://scenes/cores/world.tscn" id="3_23sua"]
@@ -28,7 +28,7 @@ size = Vector3(4, 1, 12)
 
 [node name="Level1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-script = ExtResource("1_65sl4")
+script = ExtResource("1_2avgw")
 
 [node name="Level" type="CanvasLayer" parent="."]
 
