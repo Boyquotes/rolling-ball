@@ -8,6 +8,10 @@ extends RigidBody3D
 
 @onready var camera: Marker3D = $CameraRig
 @onready var game_hud = get_parent().get_parent().get_node("GameHUD")
+@onready var bonus_hud = get_parent().get_parent().get_node("GameHUD/Control/Bonus")
+
+var bonus_background: Texture2D = preload("res://assets/textures/bonus/bonus-background.png")
+var bonus_texture: Texture2D = preload("res://assets/textures/bonus/bonus-jump.png")
 
 var coins
 var able_to_move
@@ -104,9 +108,11 @@ func _on_area_3d_area_entered(area):
 		able_to_jump = true
 		game_hud.set_advice("Press ACTION key to jump")
 		game_hud.show_advice()
+		bonus_hud.set_texture(bonus_texture)
 
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("jump_zone"):
 		able_to_jump = false
 		game_hud.hide_advice()
+		bonus_hud.set_texture(bonus_background)

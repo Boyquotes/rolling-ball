@@ -20,7 +20,6 @@ grow_vertical = 2
 script = ExtResource("1_qcpnp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,7 +28,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,7 +36,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r38wx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -54,32 +51,45 @@ theme = SubResource("Theme_dknlr")
 theme_override_constants/separation = 12
 
 [node name="ButtonAdventure" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+offset_right = 206.0
+offset_bottom = 56.0
 focus_neighbor_top = NodePath("../ButtonExit")
 text = "Adventure"
 
 [node name="ButtonChill" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 68.0
+offset_right = 206.0
+offset_bottom = 124.0
 text = "Chill"
 
 [node name="ButtonMultiplayer" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 136.0
+offset_right = 206.0
+offset_bottom = 192.0
 text = "Multiplayer"
 
 [node name="ButtonOptions" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 204.0
+offset_right = 206.0
+offset_bottom = 260.0
 text = "Options"
 
 [node name="ButtonHelp" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 272.0
+offset_right = 206.0
+offset_bottom = 328.0
 text = "Help"
 
 [node name="ButtonCredits" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 340.0
+offset_right = 206.0
+offset_bottom = 396.0
 text = "Credits"
 
 [node name="ButtonExit" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
+offset_top = 408.0
+offset_right = 206.0
+offset_bottom = 464.0
 focus_neighbor_bottom = NodePath("../ButtonAdventure")
 text = "Quit Game"
 

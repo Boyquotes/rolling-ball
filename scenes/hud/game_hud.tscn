@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://tb6awd50ifrb"]
+[gd_scene load_steps=7 format=3 uid="uid://tb6awd50ifrb"]
 
 [ext_resource type="FontFile" uid="uid://dsl2b4yt0h4mw" path="res://assets/fonts/roboto/Roboto-Regular.ttf" id="1_d2k53"]
 [ext_resource type="Script" path="res://scripts/cores/game_hud.gd" id="1_pw3l1"]
 [ext_resource type="FontFile" uid="uid://gq08pvsrcgxl" path="res://assets/fonts/roboto/Roboto-Light.ttf" id="3_v4d3b"]
+[ext_resource type="Texture2D" uid="uid://b4ukpm4uck70" path="res://assets/textures/bonus/bonus-background.png" id="4_1qioc"]
 
 [sub_resource type="Theme" id="Theme_vmooq"]
 default_font = ExtResource("1_d2k53")
@@ -25,16 +26,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LabelCoins" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 72.0
+offset_left = 64.0
 offset_top = 64.0
-offset_right = 264.0
+offset_right = 256.0
 offset_bottom = 127.0
 theme = SubResource("Theme_vmooq")
 text = "Coins : 0"
 
 [node name="LabelAdvice" type="Label" parent="Control"]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -49,3 +48,8 @@ grow_vertical = 0
 theme = SubResource("Theme_kndb8")
 text = "There is an advice here"
 horizontal_alignment = 1
+
+[node name="Bonus" type="Sprite2D" parent="Control"]
+position = Vector2(160, 864)
+scale = Vector2(0.359375, 0.359375)
+texture = ExtResource("4_1qioc")
