@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://tb6awd50ifrb"]
+[gd_scene load_steps=9 format=3 uid="uid://tb6awd50ifrb"]
 
 [ext_resource type="FontFile" uid="uid://dsl2b4yt0h4mw" path="res://assets/fonts/roboto/Roboto-Regular.ttf" id="1_d2k53"]
 [ext_resource type="Script" path="res://scripts/cores/game_hud.gd" id="1_pw3l1"]
 [ext_resource type="FontFile" uid="uid://gq08pvsrcgxl" path="res://assets/fonts/roboto/Roboto-Light.ttf" id="3_v4d3b"]
 [ext_resource type="Texture2D" uid="uid://b4ukpm4uck70" path="res://assets/textures/bonus/bonus-background.png" id="4_1qioc"]
+[ext_resource type="FontFile" uid="uid://dy6pqgfyh6bq6" path="res://assets/fonts/roboto/Roboto-Thin.ttf" id="4_28aai"]
 
 [sub_resource type="Theme" id="Theme_vmooq"]
 default_font = ExtResource("1_d2k53")
@@ -12,6 +13,10 @@ default_font_size = 50
 [sub_resource type="Theme" id="Theme_kndb8"]
 default_font = ExtResource("3_v4d3b")
 default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_0gnax"]
+default_font = ExtResource("4_28aai")
+default_font_size = 40
 
 [node name="GameHUD" type="CanvasLayer"]
 layer = 2
@@ -48,6 +53,37 @@ grow_vertical = 0
 theme = SubResource("Theme_kndb8")
 text = "There is an advice here"
 horizontal_alignment = 1
+
+[node name="VBoxContainerDebug" type="VBoxContainer" parent="Control"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 72.0
+offset_right = -64.0
+offset_bottom = 233.0
+grow_horizontal = 0
+theme = SubResource("Theme_0gnax")
+
+[node name="LabelDebug" type="Label" parent="Control/VBoxContainerDebug"]
+offset_right = 128.0
+offset_bottom = 51.0
+text = "DEBUG"
+horizontal_alignment = 2
+
+[node name="LabelMessage1" type="Label" parent="Control/VBoxContainerDebug"]
+offset_top = 55.0
+offset_right = 128.0
+offset_bottom = 106.0
+text = "DEBUG"
+horizontal_alignment = 2
+
+[node name="LabelMessage2" type="Label" parent="Control/VBoxContainerDebug"]
+offset_top = 110.0
+offset_right = 128.0
+offset_bottom = 161.0
+text = "DEBUG"
+horizontal_alignment = 2
 
 [node name="Bonus" type="Sprite2D" parent="Control"]
 position = Vector2(160, 864)

@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 mesh_library = ExtResource("8_hhtr7")
 cell_size = Vector3(4, 2, 4)
 data = {
-"cells": PackedInt32Array(0, 65534, 655364, 0, 65535, 655363, 0, 0, 1441796, 1, 0, 4, 1, 65535, 0, 1, 65534, 1048580, 65540, 65535, 0, 2, 65535, 1048576, 3, 65535, 1048577, 65545, 65534, 0, 65544, 0, 0, 65545, 0, 0, 65545, 65535, 0, 65546, 65535, 1441798, 131083, 65535, 1441792, 65546, 65534, 1441798, 65546, 0, 1441798, 131083, 65534, 1441792, 131083, 0, 1441792, 65543, 0, 0, 65544, 65534, 0, 65543, 65534, 0, 65543, 65535, 0, 131084, 65534, 1441798, 131084, 65535, 1441798, 131084, 0, 1441798, 196621, 0, 1441798, 196621, 65535, 1441798, 196621, 65534, 1441798, 262158, 65534, 1441798, 262158, 65535, 1441798, 262158, 0, 1441798, 327698, 65534, 1441792, 327698, 0, 1441792, 327699, 0, 1441792, 327699, 65534, 1441792, 327700, 65534, 1441792, 327700, 65535, 1441792, 327700, 0, 1441792, 327697, 65535, 1441792, 327697, 65534, 1441792, 327697, 0, 1441792, 327701, 65534, 8, 327701, 65535, 8, 327701, 0, 8)
+"cells": PackedInt32Array(0, 65534, 655364, 0, 65535, 655363, 0, 0, 1441796, 1, 0, 4, 1, 65535, 0, 1, 65534, 1048580, 65540, 65535, 0, 2, 65535, 1048576, 3, 65535, 1048577, 65545, 65534, 0, 65544, 0, 0, 65545, 0, 0, 65545, 65535, 0, 65546, 65535, 1441798, 131083, 65535, 1441792, 65546, 65534, 1441798, 65546, 0, 1441798, 131083, 65534, 1441792, 131083, 0, 1441792, 65543, 0, 0, 65544, 65534, 0, 65543, 65534, 0, 65543, 65535, 0, 131084, 65534, 1441798, 131084, 65535, 1441798, 131084, 0, 1441798, 196621, 0, 1441798, 196621, 65535, 1441798, 196621, 65534, 1441798, 262158, 65534, 1441798, 262158, 65535, 1441798, 262158, 0, 1441798, 327698, 65534, 1441792, 327698, 0, 1441792, 327699, 0, 1441792, 327699, 65534, 1441792, 327700, 65534, 1441792, 327700, 65535, 1441792, 327700, 0, 1441792, 327697, 65535, 1441792, 327697, 65534, 1441792, 327697, 0, 1441792, 327701, 65534, 8, 327701, 65535, 8, 327701, 0, 8, 327702, 0, 8, 327702, 65535, 8, 327702, 65534, 8)
 }
 metadata/_editor_floor_ = Vector3(0, 5, 0)
 
@@ -64,36 +64,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -25, 0)
 extents = Vector3(100, 22, 100)
 material = SubResource("FogMaterial_t7alm")
 
-[node name="Bonus" type="Node3D" parent="Level"]
+[node name="Coins" type="Node3D" parent="Level"]
 
-[node name="Coin" parent="Level/Bonus" instance=ExtResource("7_kckby")]
+[node name="Coin" parent="Level/Coins" instance=ExtResource("7_kckby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5, -2)
 
-[node name="Coin2" parent="Level/Bonus" instance=ExtResource("7_kckby")]
+[node name="Coin2" parent="Level/Coins" instance=ExtResource("7_kckby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5, 11)
 
-[node name="Coin3" parent="Level/Bonus" instance=ExtResource("7_kckby")]
+[node name="Coin3" parent="Level/Coins" instance=ExtResource("7_kckby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 5, -17)
 
-[node name="Abilities" type="Node3D" parent="Level"]
+[node name="Bonus" type="Node3D" parent="Level"]
 
-[node name="JumpZone" type="Area3D" parent="Level/Abilities" groups=["jump_zone"]]
+[node name="JumpZone" type="Area3D" parent="Level/Bonus" groups=["jump_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.35373, -2)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Bonus/JumpZone"]
 shape = SubResource("BoxShape3D_oithw")
 
-[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone"]
+[node name="FogVolume" type="FogVolume" parent="Level/Bonus/JumpZone"]
 extents = Vector3(4, 1, 2)
 material = SubResource("FogMaterial_ht1hh")
 
-[node name="JumpZone2" type="Area3D" parent="Level/Abilities" groups=["jump_zone"]]
+[node name="JumpZone2" type="Area3D" parent="Level/Bonus" groups=["jump_zone"]]
 transform = Transform3D(0.899817, -0.436268, 0, 0.436268, 0.899817, 0, 0, 0, 1, 58.7462, 11.3778, -2)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Abilities/JumpZone2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Bonus/JumpZone2"]
 shape = SubResource("BoxShape3D_a4e5c")
 
-[node name="FogVolume" type="FogVolume" parent="Level/Abilities/JumpZone2"]
+[node name="FogVolume" type="FogVolume" parent="Level/Bonus/JumpZone2"]
 extents = Vector3(2, 1, 6)
 material = SubResource("FogMaterial_ht1hh")
 
