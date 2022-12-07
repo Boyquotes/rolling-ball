@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2m6b1upgp5cl"]
+[gd_scene load_steps=9 format=3 uid="uid://c2m6b1upgp5cl"]
 
 [ext_resource type="PackedScene" uid="uid://ns83h82t6x8p" path="res://scenes/levels/level_1.tscn" id="1_gjx06"]
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="2_b3np3"]
@@ -15,7 +15,12 @@ volumetric_fog_albedo = Color(0.196078, 0.196078, 0.196078, 1)
 size = Vector3(4, 1, 4)
 
 [sub_resource type="FogMaterial" id="FogMaterial_og8cw"]
+density = 0.8
 albedo = Color(0.356863, 0.819608, 1, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_s1g1f"]
+density = 0.8
+albedo = Color(0.929412, 1, 0.164706, 1)
 
 [node name="Level2" instance=ExtResource("1_gjx06")]
 script = ExtResource("2_b3np3")
@@ -33,9 +38,6 @@ metadata/_editor_floor_ = Vector3(2, 5, 0)
 data = {
 "cells": PackedInt32Array()
 }
-
-[node name="Ball" parent="Level" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186, 31, -2)
 
 [node name="JumpZone" parent="Level/Bonus" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 2.35373, -2)
@@ -85,6 +87,11 @@ shape = SubResource("BoxShape3D_2l0yy")
 extents = Vector3(2, 1, 2)
 material = SubResource("FogMaterial_og8cw")
 
+[node name="ElevatorZone" type="FogVolume" parent="Level/Bonus/Elevator" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_s1g1f")
+
 [node name="Elevator2" type="Node3D" parent="Level/Bonus" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 19, 4)
 
@@ -99,6 +106,11 @@ shape = SubResource("BoxShape3D_2l0yy")
 [node name="FogVolume" type="FogVolume" parent="Level/Bonus/Elevator2/JumpZone" index="1"]
 extents = Vector3(2, 1, 2)
 material = SubResource("FogMaterial_og8cw")
+
+[node name="ElevatorZone" type="FogVolume" parent="Level/Bonus/Elevator2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_s1g1f")
 
 [node name="Elevator3" type="Node3D" parent="Level/Bonus" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 31, -2)
@@ -115,6 +127,11 @@ shape = SubResource("BoxShape3D_2l0yy")
 extents = Vector3(2, 1, 2)
 material = SubResource("FogMaterial_og8cw")
 
+[node name="ElevatorZone" type="FogVolume" parent="Level/Bonus/Elevator3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_s1g1f")
+
 [node name="Elevator4" type="Node3D" parent="Level/Bonus" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 43, -8)
 
@@ -129,6 +146,11 @@ shape = SubResource("BoxShape3D_2l0yy")
 [node name="FogVolume" type="FogVolume" parent="Level/Bonus/Elevator4/JumpZone" index="1"]
 extents = Vector3(2, 1, 2)
 material = SubResource("FogMaterial_og8cw")
+
+[node name="ElevatorZone" type="FogVolume" parent="Level/Bonus/Elevator4" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_s1g1f")
 
 [node name="Elevator5" type="Node3D" parent="Level/Bonus" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 55, -2)
@@ -145,6 +167,12 @@ shape = SubResource("BoxShape3D_2l0yy")
 extents = Vector3(2, 1, 2)
 material = SubResource("FogMaterial_og8cw")
 
+[node name="ElevatorZone" type="FogVolume" parent="Level/Bonus/Elevator5" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+extents = Vector3(2, 1, 2)
+material = SubResource("FogMaterial_s1g1f")
+
 [node name="GoalZone" parent="Level" index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 285, 2, -2)
 visible = false
+next_level_name = "level_1"

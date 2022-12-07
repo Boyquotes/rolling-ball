@@ -15,6 +15,7 @@ extends RigidBody3D
 
 var bonus_background: Texture2D = preload("res://assets/textures/bonus/bonus-background.png")
 var bonus_jump: Texture2D = preload("res://assets/textures/bonus/bonus-jump.png")
+var bonus_elevator: Texture2D = preload("res://assets/textures/bonus/bonus-elevator.png")
 
 var coins
 var action
@@ -133,7 +134,7 @@ func _on_area_3d_area_entered(area):
 		action_body = area
 		game_hud.set_advice("Press ACTION key to use the elevator")
 		game_hud.show_advice()
-#		bonus_hud.set_texture(bonus_elevator)
+		bonus_hud.set_texture(bonus_elevator)
 
 
 func _on_area_3d_area_exited(area):
