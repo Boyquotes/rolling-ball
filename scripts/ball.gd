@@ -38,36 +38,24 @@ func _physics_process(delta) -> void:
 	_camera_follow()
 	debug_message_1.text = "Action : " + str(action)
 	debug_message_2.text = "Able to action : " + str(able_to_action)
-#	var move_direction: Vector3 = Vector3.ZERO
-#	move_direction.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
-#	move_direction.z = Input.get_action_strength("player_backward") - Input.get_action_strength("player_forward")
-#	move_direction = move_direction.rotated(Vector3.UP, camera.rotation.y).normalized()
-#
-#	angular_velocity.x = move_direction.x * rolling_force
-#	angular_velocity.z = move_direction.z * rolling_force
-
-#	if Input.is_action_pressed("player_forward"):
-#		move_direction.z -= rolling_force * delta
-#	elif Input.is_action_pressed("player_backward"):
-#		move_direction.z += rolling_force * delta
-#	if Input.is_action_pressed("player_left"):
-#		move_direction.x -= rolling_force * delta
-#	elif Input.is_action_pressed("player_right"):
-#		move_direction.x += rolling_force * delta
-#	move_direction = move_direction.rotated(Vector3.UP, camera.rotation.y).normalized()
-#
-#	angular_velocity.x = move_direction.x * rolling_force
-#	angular_velocity.z = move_direction.z * rolling_force
 	
-	if able_to_move:
-		if Input.is_action_pressed("player_forward"):
-			angular_velocity.z -= Input.get_action_strength("player_forward") * rolling_force * delta
-		elif Input.is_action_pressed("player_backward"):
-			angular_velocity.z += Input.get_action_strength("player_backward") * rolling_force * delta
-		if Input.is_action_pressed("player_left"):
-			angular_velocity.x -= Input.get_action_strength("player_left") * rolling_force * delta
-		elif Input.is_action_pressed("player_right"):
-			angular_velocity.x += Input.get_action_strength("player_right") * rolling_force * delta
+	if able_to_move:		
+		var move_direction: Vector3 = Vector3.ZERO
+		move_direction.x = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
+		move_direction.z = Input.get_action_strength("player_backward") - Input.get_action_strength("player_forward")
+		move_direction = move_direction.rotated(Vector3.UP, camera.rotation.y).normalized()
+
+		angular_velocity.x += move_direction.x * rolling_force * delta
+		angular_velocity.z += move_direction.z * rolling_force * delta
+		
+#		if Input.is_action_pressed("player_forward"):
+#			angular_velocity.z -= Input.get_action_strength("player_forward") * rolling_force * delta
+#		elif Input.is_action_pressed("player_backward"):
+#			angular_velocity.z += Input.get_action_strength("player_backward") * rolling_force * delta
+#		if Input.is_action_pressed("player_left"):
+#			angular_velocity.x -= Input.get_action_strength("player_left") * rolling_force * delta
+#		elif Input.is_action_pressed("player_right"):
+#			angular_velocity.x += Input.get_action_strength("player_right") * rolling_force * delta
 
 		if Input.is_action_pressed("camera_up"):
 			camera.rotate(Vector3.BACK, Input.get_action_strength("camera_up") * joystick_sensitivity)
