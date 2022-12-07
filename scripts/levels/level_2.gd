@@ -1,7 +1,7 @@
 extends Node3D
 
 
-var level_coins = 0
+var level_coins = 1
 
 
 func _on_death_zone_body_entered(body):
