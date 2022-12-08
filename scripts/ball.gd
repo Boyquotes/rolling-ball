@@ -3,7 +3,7 @@ extends RigidBody3D
 
 @export var rolling_force = 30
 @export var jump_impulse = 1500
-@export var mouse_sensitivity = 0.001
+@export var mouse_sensitivity = 0.003
 @export var joystick_sensitivity = 0.025
 
 @onready var camera: Marker3D = $CameraRig
@@ -92,6 +92,7 @@ func _camera_follow() -> void:
 func _input(event) -> void:
 	if event is InputEventMouseMotion:
 		if able_to_move:
+			print(event)
 			camera.rotate_y(-event.relative.x * mouse_sensitivity)
 			camera.rotate_z(-event.relative.y * mouse_sensitivity)
 #		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)

@@ -36,27 +36,20 @@ theme = SubResource("Theme_amyj6")
 theme_override_constants/separation = 12
 
 [node name="ButtonResume" type="Button" parent="VBoxContainer"]
-offset_right = 329.0
-offset_bottom = 56.0
+layout_mode = 2
 focus_neighbor_top = NodePath("../ButtonMainMenu")
 text = "Resume"
 
 [node name="ButtonTryAgain" type="Button" parent="VBoxContainer"]
-offset_top = 68.0
-offset_right = 329.0
-offset_bottom = 124.0
+layout_mode = 2
 text = "Try again"
 
 [node name="ButtonOptions" type="Button" parent="VBoxContainer"]
-offset_top = 136.0
-offset_right = 329.0
-offset_bottom = 192.0
+layout_mode = 2
 text = "Options"
 
 [node name="ButtonMainMenu" type="Button" parent="VBoxContainer"]
-offset_top = 204.0
-offset_right = 329.0
-offset_bottom = 260.0
+layout_mode = 2
 focus_neighbor_bottom = NodePath("../ButtonResume")
 text = "Exit to main menu
 "

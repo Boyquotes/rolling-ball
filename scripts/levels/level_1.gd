@@ -1,13 +1,11 @@
 extends Node3D
 
-#@onready var player: RigidBody3D = $Level/Ball
-#@onready var initial_position: Vector3 = player.get("position")
 
 var level_coins = 3
 
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _on_death_zone_body_entered(body):

@@ -81,59 +81,79 @@ grow_vertical = 2
 theme_override_constants/separation = 120
 
 [node name="VBoxContainerLabel" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+offset_right = 685.0
+offset_bottom = 152.0
 theme = SubResource("Theme_ktftd")
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainerLabel"]
-layout_mode = 2
+offset_right = 685.0
+offset_bottom = 74.0
 text = "Level Completed"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/VBoxContainerLabel"]
-layout_mode = 2
+offset_top = 78.0
+offset_right = 685.0
+offset_bottom = 152.0
 text = "!!! CONGRATULATIONS !!!"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+offset_top = 272.0
+offset_right = 685.0
+offset_bottom = 402.0
 theme = SubResource("Theme_7udyo")
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 685.0
+offset_bottom = 63.0
 text = "Time"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 67.0
+offset_right = 685.0
+offset_bottom = 130.0
 alignment = 1
 
 [node name="LabelMinute" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 276.0
+offset_right = 332.0
+offset_bottom = 63.0
 text = "00"
 
 [node name="LabelMiddle" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 336.0
+offset_right = 348.0
+offset_bottom = 63.0
 text = ":"
 
 [node name="LabelSecond" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 352.0
+offset_right = 408.0
+offset_bottom = 63.0
 text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainerButton" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
+offset_top = 522.0
+offset_right = 685.0
+offset_bottom = 646.0
 theme = SubResource("Theme_ahonk")
 theme_override_constants/separation = 12
 
 [node name="ButtonNextLevel" type="Button" parent="VBoxContainer/VBoxContainerButton"]
-layout_mode = 2
+offset_right = 685.0
+offset_bottom = 56.0
 focus_neighbor_top = NodePath("../ButtonMainMenu")
 text = "Next Level"
 
 [node name="ButtonMainMenu" type="Button" parent="VBoxContainer/VBoxContainerButton"]
-layout_mode = 2
+offset_top = 68.0
+offset_right = 685.0
+offset_bottom = 124.0
 focus_neighbor_bottom = NodePath("../ButtonNextLevel")
 text = "Back to Main Menu"
 

@@ -1,11 +1,11 @@
 extends Node3D
 
 
-var level_coins = 1
+var level_coins = 6
 
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _on_death_zone_body_entered(body):
