@@ -7,6 +7,10 @@ func _ready():
 
 func _input(event) -> void:
 	if event.is_action_pressed("pause"):
+		if get_tree().paused:
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		set("visible", !get_tree().paused)
 		get_tree().paused = !get_tree().paused
 		$VBoxContainer/ButtonResume.grab_focus()

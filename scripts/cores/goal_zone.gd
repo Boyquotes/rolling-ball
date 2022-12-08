@@ -16,6 +16,7 @@ func _on_body_entered(body):
 			var completed_level_menu = CompletedLevelMenu.instantiate()
 			completed_level_menu.set_next_level_name(next_level_name)
 			add_child(completed_level_menu)
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			game_hud.set_advice("Coins collected : " + str(player_coins) + "/" + str(level_coins))
 			game_hud.show_advice()

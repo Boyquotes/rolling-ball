@@ -3,7 +3,7 @@ extends Control
 
 func _ready():
 	$Panel/VBoxContainer/ButtonAdventure.grab_focus()
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _on_button_adventure_pressed():
