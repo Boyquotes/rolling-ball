@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://tb6awd50ifrb"]
+[gd_scene load_steps=10 format=3 uid="uid://tb6awd50ifrb"]
 
 [ext_resource type="FontFile" uid="uid://dsl2b4yt0h4mw" path="res://assets/fonts/roboto/Roboto-Regular.ttf" id="1_d2k53"]
 [ext_resource type="Script" path="res://scripts/cores/game_hud.gd" id="1_pw3l1"]
@@ -17,6 +17,10 @@ default_font_size = 32
 [sub_resource type="Theme" id="Theme_0gnax"]
 default_font = ExtResource("4_28aai")
 default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_k6o15"]
+default_font = ExtResource("1_d2k53")
+default_font_size = 50
 
 [node name="GameHUD" type="CanvasLayer"]
 layer = 2
@@ -85,7 +89,40 @@ offset_bottom = 161.0
 text = "DEBUG"
 horizontal_alignment = 2
 
+[node name="HBoxContainerStopwatch" type="HBoxContainer" parent="Control"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 72.0
+offset_right = 42.0
+offset_bottom = 123.0
+grow_horizontal = 2
+theme = SubResource("Theme_k6o15")
+
+[node name="LabelMinute" type="Label" parent="Control/HBoxContainerStopwatch"]
+offset_right = 56.0
+offset_bottom = 63.0
+text = "00"
+
+[node name="LabelMiddle" type="Label" parent="Control/HBoxContainerStopwatch"]
+offset_left = 60.0
+offset_right = 72.0
+offset_bottom = 63.0
+text = ":"
+
+[node name="LabelSecond" type="Label" parent="Control/HBoxContainerStopwatch"]
+offset_left = 76.0
+offset_right = 132.0
+offset_bottom = 63.0
+text = "00"
+
 [node name="Bonus" type="Sprite2D" parent="Control"]
 position = Vector2(160, 864)
 scale = Vector2(0.359375, 0.359375)
 texture = ExtResource("4_1qioc")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

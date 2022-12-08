@@ -1,18 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://csmaoesdpdkiu"]
+[gd_scene load_steps=11 format=3 uid="uid://csmaoesdpdkiu"]
 
 [ext_resource type="FontFile" uid="uid://owv0xlglcbyj" path="res://assets/fonts/roboto/Roboto-Medium.ttf" id="1_bpw23"]
 [ext_resource type="Script" path="res://scripts/menus/completed_level_menu.gd" id="1_o0inu"]
-[ext_resource type="FontFile" uid="uid://codphd3i1jtme" path="res://assets/fonts/roboto/Roboto-Black.ttf" id="2_1ny5g"]
+[ext_resource type="FontFile" uid="uid://b3i0wt7rwfh3" path="res://assets/fonts/roboto/Roboto-Bold.ttf" id="2_ijocp"]
+[ext_resource type="FontFile" uid="uid://dsl2b4yt0h4mw" path="res://assets/fonts/roboto/Roboto-Regular.ttf" id="3_wgtf0"]
 
-[sub_resource type="Theme" id="Theme_470ao"]
-default_font = ExtResource("2_1ny5g")
+[sub_resource type="Theme" id="Theme_ktftd"]
+default_font = ExtResource("2_ijocp")
 default_font_size = 60
 
-[sub_resource type="Theme" id="Theme_w6qci"]
+[sub_resource type="Theme" id="Theme_7udyo"]
+default_font = ExtResource("3_wgtf0")
+default_font_size = 50
+
+[sub_resource type="Theme" id="Theme_ahonk"]
 default_font = ExtResource("1_bpw23")
 default_font_size = 40
 
-[sub_resource type="Animation" id="Animation_s7qqx"]
+[sub_resource type="Animation" id="Animation_1top3"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -27,7 +32,7 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_5x5re"]
+[sub_resource type="Animation" id="Animation_m5wyi"]
 resource_name = "fade"
 length = 2.0
 tracks/0/type = "value"
@@ -43,10 +48,10 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ipewb"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prfqe"]
 _data = {
-"RESET": SubResource("Animation_s7qqx"),
-"fade": SubResource("Animation_5x5re")
+"RESET": SubResource("Animation_1top3"),
+"fade": SubResource("Animation_m5wyi")
 }
 
 [node name="CompletedLevelMenu" type="CanvasLayer"]
@@ -73,40 +78,69 @@ offset_right = 282.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 150
+theme_override_constants/separation = 120
 
 [node name="VBoxContainerLabel" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ktftd")
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainerLabel"]
 layout_mode = 2
-theme = SubResource("Theme_470ao")
 text = "Level Completed"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/VBoxContainerLabel"]
 layout_mode = 2
-theme = SubResource("Theme_470ao")
 text = "!!! CONGRATULATIONS !!!"
 horizontal_alignment = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_7udyo")
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Time"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LabelMinute" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "00"
+
+[node name="LabelMiddle" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = ":"
+
+[node name="LabelSecond" type="Label" parent="VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainerButton" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_w6qci")
+theme = SubResource("Theme_ahonk")
 theme_override_constants/separation = 12
 
 [node name="ButtonNextLevel" type="Button" parent="VBoxContainer/VBoxContainerButton"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ButtonMainMenu")
 text = "Next Level"
 
 [node name="ButtonMainMenu" type="Button" parent="VBoxContainer/VBoxContainerButton"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../ButtonNextLevel")
 text = "Back to Main Menu"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fade"
 libraries = {
-"": SubResource("AnimationLibrary_ipewb")
+"": SubResource("AnimationLibrary_prfqe")
 }
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainerButton/ButtonNextLevel" to="." method="_on_button_next_level_pressed"]
